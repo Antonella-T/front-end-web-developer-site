@@ -1,0 +1,813 @@
+/* GLOBAL styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  color: rgb(32, 32, 32);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.28rem;
+  flex-basis: 70%;
+}
+
+h2 {
+  font-family: 'ropa sans';
+  font-size: 2rem;
+  margin: 2% 0 6%;
+}
+
+h3 {
+  font-family: 'ropa sans';
+  font-size: 1.28rem;
+  margin: 35px 0 20px;
+}
+
+h4 {
+  color: rgb(0, 101, 168);
+  font-family: 'ropa sans';
+  font-size: 1.14rem;
+  margin-bottom: 2%;
+}
+
+ul {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 101, 168);
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  padding: 3% 4%;
+  border-radius: 3%;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+
+
+/* HELPERS */
+.btn-turquese {
+  background-color: rgb(0, 101, 168);
+  color: white;
+  border: 2px solid rgb(0, 101, 168);
+  margin-right: 2%;
+  padding: 1.5% 4%;
+  border-radius: 3%;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.btn-turquese:hover {
+  color: rgb(0, 101, 168);
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 101, 168);
+}
+
+.btn-green {
+  background-color: rgb(2, 92, 95);
+  color: white;
+  border: 2px solid rgb(2, 92, 95);
+  padding: 1.5% 4%;
+  border-radius: 3%;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.btn-green:hover {
+  color: rgb(2, 92, 95);
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(2, 92, 95);
+}
+
+/* These are styles to costumize the scroll bar */
+*::-webkit-scrollbar-track {
+  border: 1px solid rgb(141, 141, 141);
+  background-color: rgba(179, 179, 179, 0.65);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(132, 132, 132);
+  border-radius: 5px;
+}
+
+.show-mobile {
+  display: block;
+}
+
+.show-desktop {
+  display: none;
+}
+
+.sub-heading {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+
+
+/* ACCORDION COMPONENT */
+.accordion div h3 {
+  font-size: 1rem;
+  margin: 2% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion > div {
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin: 1% 0;
+  overflow: hidden;
+  padding: 0 4%;
+}
+
+.accordion div p {
+  width: 90%;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .5s ease-in-out;
+  margin: 0;
+}
+
+/* To create a space after text, and not modifide the height of the accordion when its close. */
+.accordion div p::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  display: block;
+}
+
+.accordion .active p {
+  max-height: 500px;
+}
+
+.accordion .active {
+  display: block;
+}
+
+/* to add animation in the angle-down icon */
+.accordion .fa-angle-down {
+  transform: rotate(0deg);
+  transition: transform .4s ease-in-out;
+}
+
+.accordion .active .fa-angle-down {
+  transform: rotate(180deg);
+}
+
+
+
+/* SECTION GROUP */
+.section-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* HEADER styles */
+.main-header {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  align-items: center;
+  background-color: rgb(0, 101, 168);
+  color: rgb(255, 255, 255);
+  padding: 0 5%;
+}
+
+.main-header .hamburger-menu {
+  cursor: pointer;
+  text-align: right;
+  margin: 5% 5% 0 0;
+}
+
+/* H1 logo styles */
+.main-header .logo span {
+  font-weight: 400;
+}
+
+.main-header .logo .fas {
+  padding-right: 1%;
+}
+
+.main-header a {
+  color: rgb(255, 255, 255);
+}
+
+.main-header a:hover {
+  text-decoration: none;
+  color: rgb(2, 173, 236);
+}
+
+
+
+/* NAV styles */
+nav {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav .menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav .menu li {
+  margin: 10% 0;
+}
+
+nav .fa-bars {
+  font-size: 1.5rem;
+}
+
+nav a {
+  font-size: 1.28rem;
+}
+
+
+
+/* VIDEO-BANNER styles */
+.video-banner {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-banner video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  object-fit: cover;
+}
+
+/* To add overlay in the video */
+.video-banner::after {
+  width: 100%;
+  height: 100%;
+  content: " ";
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background: rgba(180, 180, 180, 0.7);
+}
+
+
+
+/* CAPTION styles */
+.caption {
+  overflow: hidden;
+  position: relative;
+  z-index: 16;
+  color: white;
+  text-align: center;
+}
+
+.caption h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 4%;
+}
+
+.caption p {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgb(0, 0, 0);
+  margin: 0 auto 3%;
+  line-height: 1rem;
+}
+
+
+
+/* home-section styles */
+.home-section,
+.video-banner,
+.certifications,
+.contact,
+.course-content,
+.faq {
+  padding: 8% 5%;
+}
+
+.home-section h3 {
+  border-bottom: 1px dotted rgb(0, 101, 168);
+  padding-bottom: .7rem;
+}
+
+.home-section .course-description a {
+  color: rgb(0, 101, 168);
+}
+
+.home-section .course-description ul {
+  padding-left: 3%;
+}
+
+
+
+/* CARD-INFO styles */
+.card-info p span {
+  color: rgb(0, 101, 168);
+  font-size: 1.2rem;
+}
+
+.card-info p {
+  border-bottom: 1px dotted rgb(0, 101, 168);
+  padding-bottom: 4%;
+}
+
+.card-info img {
+  max-width: 410px;
+}
+
+
+
+/* COURSE CONTENT styles */
+.course-content {
+  background-color: rgb(237, 237, 237);
+  border-top: 3px solid rgb(92, 197, 201);
+}
+
+.course-content .accordion div {
+  background-color: rgb(92, 197, 201);
+}
+
+.course-content .icons-container {
+  order: 2;
+  text-align: center;
+}
+
+.course-content .icons-container i {
+  font-size: 6rem;
+  margin: 0 2%;
+}
+
+.course-content .icons-container .fa-html5 {
+  color: rgb(242, 150, 11);
+}
+
+.course-content .icons-container .fa-css3-alt {
+  color: rgb(0, 146, 200);
+}
+
+.course-content .icons-container .fa-js-square {
+  color: rgb(253, 217, 61);
+}
+
+
+
+/* CERTIFICATIONS styles */
+.certifications h3 {
+  border-bottom: 1px dotted rgb(0, 101, 168);
+  padding-bottom: .7rem;
+}
+
+.certifications a {
+  color: rgb(0, 101, 168);
+  font-weight: 100;
+}
+
+
+
+/* FAQ styles */
+.faq {
+  background-color: rgb(92, 197, 201);
+  border-top: 3px solid rgb(237, 237, 237);
+  overflow: hidden;
+}
+
+.faq h2 {
+  color: rgb(0, 80, 83);;
+}
+
+.faq .accordion > div {
+  color: rgb(2, 92, 95);
+  background-color: white;
+}
+
+
+
+/* CONTACT styles */
+.contact {
+  background-color: rgb(237, 237, 237);
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.contact input,
+textarea {
+  border-radius: 3px;
+  border: 2px solid rgb(0, 101, 168);
+  padding: .8rem;
+  margin-bottom: 1rem;
+}
+
+.contact form button {
+  width: 30%;
+}
+
+.contact h3 {
+  margin: 0 0 4%;
+}
+
+
+
+/* PRIVACY POLICY styles */
+.privacy-policy {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.privacy-policy small {
+  flex-basis: 88%;
+  line-height: 1.2rem;
+}
+
+.privacy-policy a {
+  color: rgb(0, 101, 168);
+}
+
+.privacy-policy input {
+  margin-right: 2%;
+}
+
+.map-enqueries h3 {
+  color: rgb(0, 101, 168);
+  margin-top: 10%;
+}
+
+
+
+/* MODAL BOX styles */
+.modal-box-container {
+  /*Hides modal-box when there is no "active" class*/
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .6);
+  padding: 5%;
+}
+
+.modal-box-container.active {
+  /*displays modal-box when "active" class is present*/
+  display: block;
+}
+
+.modal-box-content {
+  background: #ffffff;
+  border: 3px solid #666666;
+  height: 100%;
+  overflow-y: auto; /* to add scroll bar */
+  padding: 0 3% 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-box-content header {
+  display: flex;
+}
+
+.modal-box-content h2 {
+  flex-grow: 1;
+  margin: 2% 0;
+}
+
+.modal-box-content .fa-times {
+  flex-basis: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-box-content a {
+  color: rgb(0, 101, 168);
+}
+
+.modal-box-content section {
+  overflow: auto;
+  padding: 0 10% 0 0;
+}
+
+.modal-box-content.modal-sm {
+  height: auto; 
+  padding: 0 3% 3%;
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+.modal-box-container .modal-box-content h2 {
+  margin-left: 0;
+}
+
+
+/* GOOGLE MAPS styles */
+.map-container {
+  overflow: hidden;
+  background: none !important;
+  height: 400px;
+  width: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+}
+
+
+
+/* FOOTER styles */
+footer {
+  font-size: .8rem;
+}
+
+footer h4.logo {
+  color: rgb(0, 0, 0);
+}
+
+footer .contact-details {
+  padding: 0 5%;
+}
+
+footer .copyright {
+  text-align: center;
+  background-color: rgb(0, 102, 170);
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+footer .copyright b {
+  font-weight: 500;
+}
+
+
+
+/* MEDIA QUERY MAX WIDTH 990px */
+@media screen and (max-width: 990px) {
+  /* NAV styles */
+  /*  */
+  nav.showMenu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0065a8;
+    text-align: center;
+    z-index: 122;
+    top: 0;
+    right: 0px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  nav.showMenu .menu {
+    display: block;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 989px) {
+
+  nav .menu li {
+    margin: 5% 0;
+  }
+  /* HOME SECTION - CARD INFO */
+  .card-info {
+    align-items: stretch;
+  }
+
+  .card-info img {
+    display: none;
+  }
+
+  /* CONTACT SECTION -PRIVACY POLICY */
+  .privacy-policy small {
+    flex-basis: 37%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+    /* VIDEO-BANNER */
+    .caption h2 {
+      font-size: 4rem;
+    }
+  
+    .caption p {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      width: 75%;
+    }
+
+    /* HOME SECTION - CARD INFO */
+    .card-info .course-details {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    .card-info .course-details > div {
+      flex-basis: 48%;
+    }
+  
+    .card-info p:last-of-type {
+      border-bottom: none;
+      padding: 0;
+    }
+
+    /* CONTACT */
+    .contact .enqueries {
+      display: flex;
+    }
+  
+    .contact .enqueries > div {
+      flex-basis: 35%;
+    }
+  
+}
+
+
+
+/* MEDIA QUERY MIN WIDTH 991PX AND MAX WIDTH 1440PX*/
+@media screen and (min-width: 991px) and (max-width: 1440px) {
+  /* GLOBAL */
+  h1 {
+    flex-basis: 35%;
+  }
+
+  /* NAV */
+  nav {
+    flex-basis: 65%;
+  }
+
+  nav .menu {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-end;
+  }
+
+  nav .menu li {
+    margin: 0 2%;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  .main-header .hamburger-menu {
+    display: none;
+  }
+
+  /* HELPERS */
+  .show-mobile {
+    display: none;
+  }
+
+  .show-desktop {
+    display: block;
+  }
+
+  .side-description {
+    font-size: 1.7rem;
+    color: rgb(104, 104, 104);
+    font-weight: 300;
+    line-height: 2.5rem;
+  }
+
+  .side-description p:nth-child(2) {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  .side-description p span {
+    color: rgb(179, 15, 15);
+  }
+
+  /* SECTION GROUP */
+  .section-group {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .section-group > *:nth-child(1) {
+    flex-basis: 30%;
+    max-width: 30%;
+    padding-right: 3%;
+  }
+
+  .section-group > *:nth-child(2) {
+    flex-basis: 70%;
+    max-width: 70%;
+  }
+
+  /* COURSE CONTENT */
+  .course-content .icons-container {
+    order: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 90px;
+  }
+
+  .course-content .icons-container i {
+    font-size: 9rem;
+    flex-basis: 50%;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  /* FAQ */
+  .faq .fa-question {
+    color: rgb(255, 255, 255);
+    font-size: 20rem;
+    margin-top: 90px;
+  }
+
+  /* CONTACT */
+  .contact h2 {
+    margin-left: 30%;
+  }
+
+  /* FOOTER */
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  footer li a {
+    color: rgb(32, 32, 32);
+  }
+
+  footer li a:hover {
+    color: rgb(0, 101, 168);
+  }
+
+  footer ul {
+    list-style-type: none;
+  }
+
+  footer > div:nth-child(2) {
+    display: flex;
+  }
+
+  footer .contact-details {
+    padding: 0px 3%;
+    flex-basis: 30%;
+  }
+
+  footer .copyright {
+    flex-basis: 100%;
+  }
+}
