@@ -9,7 +9,11 @@ $(document).ready(function () {
     $('nav').toggleClass('showMenu');
   };
 
-  $('.hamburger-menu, .menu li a').on('click', toggleElements);
+  $('.hamburger-menu, .menu li a').on('click', function () {
+    if ($(window).width() <= 990) {
+      toggleElements();
+    }
+  });
   //end hamburger menu
 
 
